@@ -31,7 +31,7 @@ async function onLoginClicked(){
 
 
 <template>
-  <div class="container d-flex justify-content-center mt-5 min-vh-100">
+  <div class="container d-flex justify-content-center mt-5">
     <div class="d-flex flex-column text-center p-5">
       <img src="../../assets/images/cinema2.png" alt="key-picture" class="mb-3">
       <h1 class="mb-3">Admin Panel</h1>
@@ -69,11 +69,7 @@ async function onLoginClicked(){
 </template>
 
 
-<style>
-
-*{
-  overflow: hidden;
-}
+<style scoped>
  
 .form-control:focus{
   box-shadow: none;
