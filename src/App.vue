@@ -26,15 +26,18 @@ function logout(){
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Movies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Locations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Rent cinema hall</a>
-                    </li>         
+                  <li class="nav-item">
+                      <RouterLink class="nav-link" aria-current="page" to="/movies">Movies</RouterLink>
+                  </li>
+                  <li class="nav-item">
+                      <RouterLink class="nav-link" to="/locations">Locations</RouterLink>
+                  </li>
+                  <li class="nav-item">
+                      <RouterLink class="nav-link" to="/rent-hall">Rent cinema hall</RouterLink>
+                  </li>
+                  <li class="nav-item" v-if="isAuthenticated">
+                      <RouterLink class="nav-link" to="/admin-panel">Admin Panel</RouterLink>
+                  </li>        
                 </ul>
                 <RouterLink class="nav-link d-flex align-items-center me-3" to="/search">
                   <i class="fa-solid fa-search me-2"></i>
@@ -60,13 +63,16 @@ function logout(){
         <div class="offcanvas-body text-center">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Movies</a>
+                    <RouterLink class="nav-link" aria-current="page" to="/movies">Movies</RouterLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Locations</a>
+                    <RouterLink class="nav-link" to="/locations">Locations</RouterLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Rent cinema hall</a>
+                    <RouterLink class="nav-link" to="/rent-hall">Rent cinema hall</RouterLink>
+                </li>
+                <li class="nav-item" v-if="isAuthenticated">
+                    <RouterLink class="nav-link" to="/admin-panel">Admin Panel</RouterLink>
                 </li>
                 <button class="btn btn-outline-secondary mt-1" type="button">Find Movie By Name</button>
                 <button @click="logout()" type="button" class="btn btn-warning mt-3" v-if="isAuthenticated"> Logout </button>

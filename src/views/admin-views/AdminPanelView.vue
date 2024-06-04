@@ -66,6 +66,7 @@ onMounted(() => {
 </script>
 
 <template>
+  
 
 <div class="container-fluid">
     <div class="row">
@@ -98,7 +99,7 @@ onMounted(() => {
                           </span>
                       </a>
                       <ul class="collapse navbar-collapse" id="movie-dropdown" data-bs-parent="#menu">
-                          <li class="mb-3"> <RouterLink to="/admin-panel/movie/new" class="nav-link d-none d-sm-inline">Create Movie</RouterLink> </li>
+                          <li class="mb-3"> <RouterLink to="/admin-panel/movie/create" class="nav-link d-none d-sm-inline">Create Movie</RouterLink> </li>
                           <li class="mb-3"> <RouterLink to="/admin-panel/movie" class="nav-link d-none d-sm-inline">Edit Movie</RouterLink> </li>
                           <li> <RouterLink to="/admin-panel/movie" href="#" class="nav-link d-none d-sm-inline">All Movies</RouterLink> </li>
                       </ul>
@@ -116,7 +117,7 @@ onMounted(() => {
                       <ul class="collapse navbar-collapse" id="projection-dropdown" data-bs-parent="#menu">
                           <li class="mb-3"> <RouterLink to="/admin-panel/projection/new" class="nav-link d-none d-sm-inline">Create Projection</RouterLink> </li>
                           <li class="mb-3"> <RouterLink to="/admin-panel/projection" class="nav-link d-none d-sm-inline">Edit Projection</RouterLink> </li>
-                          <li> <RouterLink to="/admin-panel/projection" href="#" class="nav-link d-none d-sm-inline">All Projection</RouterLink> </li>
+                          <li> <RouterLink to="/admin-panel/projection" href="#" class="nav-link d-none d-sm-inline">Projections</RouterLink> </li>
                       </ul>
                       <RouterLink to="/admin-panel/projection" class="d-sm-none flex-column nav-link text-center">
                               <p class="text-center mb-0">Projection</p>
@@ -212,8 +213,6 @@ ul{
 }
 .card-text {
   font-size: 2rem;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
- 
 }
 
 h2{

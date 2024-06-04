@@ -5,7 +5,7 @@ export interface MovieModel{
     releaseYear: string,
     description: string,
     image: string,
-    main_actors: string[],
+    mainActors: string[],
     duration: number;
     startsShowing: string;
     createdAt: string,

@@ -17,7 +17,7 @@ async function onLoginClicked(){
         const rsp = await login(username.value,password.value)
         AuthService.saveAuth(rsp.data)
         console.log(isAuthenticated.value)
-        router.push({ path: "/"})
+        router.push({ path: "/admin-panel"})
     }catch(e: any){
         username.value = ""
         password.value = ""

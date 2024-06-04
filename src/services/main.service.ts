@@ -58,6 +58,19 @@ export function formatDate(iso: string){
     return new Date(iso).toLocaleString("sr-RS");
 }
 
+export function getDateWithoutHourPart(date: Date) {
+    const pureDate = new Date(date);
+    pureDate.setHours(0, 0, 0, 0);
+    return pureDate;
+}
+
+export function pureDateString(date: Date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
 
 export async function login(username: string,password: string){
     return await client.request({
@@ -69,5 +82,25 @@ export async function login(username: string,password: string){
         }
     })
     // prosirio bi sa try catch i saveAuth
+}
+
+export async function sendUnauthenticatedRequest(path: string, method: string = "get", payload: any = {}): Promise<AxiosResponse> {
+    try {
+        const rsp = await client.request({
+            url: path,
+            method: method,
+            headers: {
+                'Accept': 'application/json'
+            },
+            data: payload
+        });
+        return rsp;
+    } catch (e) {
+        const rsp = (e as AxiosError).response as AxiosResponse;
+        if (rsp && rsp.status === 404) {
+            throw new Error("NOT_FOUND");
+        }
+        throw e;
+    }
 }
 
