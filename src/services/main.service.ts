@@ -12,13 +12,19 @@ const client = axios.create({
 })
 
 async function sendRequest(path: string, method: string, payload: any, token: string): Promise<AxiosResponse> {
+    let headers: { [key: string]: string } = {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`
+    };
+    
+    if (payload instanceof FormData) {
+        headers['Content-Type'] = 'multipart/form-data';
+    }
+   
     return await client.request({
         url: path,
         method: method,
-        headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
+        headers: headers,
         data: payload
     });
 }

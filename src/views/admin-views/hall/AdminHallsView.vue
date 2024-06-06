@@ -23,7 +23,7 @@ async function removeThisHall(id: number){
 <template>
 
 <div v-if="halls && halls.length > 0">   
-    <h1 class="h3 text-center m-4 text-danger">Cinema Halls</h1>
+    <h1 class="h3 text-center m-4">Cinema Halls</h1>
     <table class="table table-hover text-center">
     <thead>
         <tr>
@@ -46,8 +46,8 @@ async function removeThisHall(id: number){
         <td>{{ formatDate(h.updatedAt) }}</td>
         <td>
             <div class="btn-group">
-                <RouterLink class="btn btn-sm btn-info m-1"
-                    :to="`/hall/${h.hallId}`">
+                <RouterLink class="btn btn-sm btn-secondary m-1"
+                    :to="`/admin-panel/hall/edit/${h.hallId}`">
                     <i class="fa-solid fa-pencil"></i>
                 </RouterLink>
                 
@@ -60,7 +60,7 @@ async function removeThisHall(id: number){
         </tr>
     </tbody>
     </table>
-    <RouterLink class="btn btn-md btn-danger" to="/hall/new">
+    <RouterLink class="btn btn-md btn-success" to="/admin-panel/create/hall">
         <i class="fa-solid fa-circle-plus"></i>
         Add New Hall
     </RouterLink>
@@ -68,7 +68,7 @@ async function removeThisHall(id: number){
 
 <div v-else-if="halls?.length == 0">
     <div class="mb-3">Add New Hall To Cinema</div>    
-    <RouterLink class="btn btn-md btn-danger" to="/hall/new">
+    <RouterLink class="btn btn-md btn-danger" to="/admin-panel/create/hall">
         <i class="fa-solid fa-circle-plus"></i>
         Add New Hall
     </RouterLink>
@@ -83,7 +83,7 @@ async function removeThisHall(id: number){
 
 </template>
 
-<style>
+<style scoped>
 
 .table{
     overflow: auto;

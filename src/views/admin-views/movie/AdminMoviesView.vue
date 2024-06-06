@@ -57,7 +57,7 @@ async function removeThisMovie(id: number){
         <td>
             <div class="btn-group">
                 <RouterLink class="btn btn-sm btn-secondary m-1"
-                    :to="`/movie/${m.movieId}`">
+                    :to="`/admin-panel/movie/edit/${m.movieId}`">
                     <i class="fa-solid fa-pencil"></i>
                 </RouterLink>
                 
@@ -70,7 +70,7 @@ async function removeThisMovie(id: number){
         </tr>
     </tbody>
     </table>
-    <RouterLink class="btn btn-md btn-danger" to="/movie/new">
+    <RouterLink class="btn btn-md btn-danger" to="/admin-panel/create/movie">
         <i class="fa-solid fa-circle-plus"></i>
         Add New Movie
     </RouterLink>
@@ -78,7 +78,7 @@ async function removeThisMovie(id: number){
 
 <div v-else-if="movies?.length == 0">
     <div class="mb-3">Add New Movie To Cinema</div>    
-    <RouterLink class="btn btn-md btn-danger" to="/movie/new">
+    <RouterLink class="btn btn-md btn-danger" to="/admin-panel/create/movie">
         <i class="fa-solid fa-circle-plus"></i>
         Add New Movie
     </RouterLink>
@@ -93,7 +93,7 @@ async function removeThisMovie(id: number){
 
 </template>
 
-<style>
+<style scoped>
 
 .table{
     overflow: auto;

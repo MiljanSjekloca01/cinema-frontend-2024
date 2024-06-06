@@ -83,7 +83,7 @@ onMounted(() => {
                           </span>
                       </a>
                       <ul class="collapse navbar-collapse" id="hall-dropdown" data-bs-parent="#menu">
-                          <li class="mb-3"> <RouterLink to="/admin-panel/hall/new" class="nav-link d-none d-sm-inline">Create Hall</RouterLink> </li>
+                          <li class="mb-3"> <RouterLink to="/admin-panel/create/hall" class="nav-link d-none d-sm-inline">Create Hall</RouterLink> </li>
                           <li class="mb-3"> <RouterLink to="/admin-panel/hall" class="nav-link d-none d-sm-inline">Edit Hall</RouterLink> </li>
                           <li> <RouterLink to="/admin-panel/hall" class="nav-link d-none d-sm-inline">All Halls</RouterLink> </li>
                       </ul>
@@ -99,7 +99,7 @@ onMounted(() => {
                           </span>
                       </a>
                       <ul class="collapse navbar-collapse" id="movie-dropdown" data-bs-parent="#menu">
-                          <li class="mb-3"> <RouterLink to="/admin-panel/movie/create" class="nav-link d-none d-sm-inline">Create Movie</RouterLink> </li>
+                          <li class="mb-3"> <RouterLink to="/admin-panel/create/movie" class="nav-link d-none d-sm-inline">Create Movie</RouterLink> </li>
                           <li class="mb-3"> <RouterLink to="/admin-panel/movie" class="nav-link d-none d-sm-inline">Edit Movie</RouterLink> </li>
                           <li> <RouterLink to="/admin-panel/movie" href="#" class="nav-link d-none d-sm-inline">All Movies</RouterLink> </li>
                       </ul>
@@ -115,7 +115,7 @@ onMounted(() => {
                           </span>
                       </a>
                       <ul class="collapse navbar-collapse" id="projection-dropdown" data-bs-parent="#menu">
-                          <li class="mb-3"> <RouterLink to="/admin-panel/projection/new" class="nav-link d-none d-sm-inline">Create Projection</RouterLink> </li>
+                          <li class="mb-3"> <RouterLink to="/admin-panel/create/projection" class="nav-link d-none d-sm-inline">Create Projection</RouterLink> </li>
                           <li class="mb-3"> <RouterLink to="/admin-panel/projection" class="nav-link d-none d-sm-inline">Edit Projection</RouterLink> </li>
                           <li> <RouterLink to="/admin-panel/projection" href="#" class="nav-link d-none d-sm-inline">Projections</RouterLink> </li>
                       </ul>
@@ -139,7 +139,7 @@ onMounted(() => {
             </div>
           </div>
           <div class="row p-2 card-2 m-3" v-if="Object.keys(projectionsByHallTodayValue).length !== 0">
-            <h5 class="text-center text-success">Projections for Today</h5>
+            <h5 class="text-center text-success fs-3">Projections for Today</h5>
             <div v-for="data in projectionsByHallToday" class="col text-center">
               <h5 class="card-title">{{ data.name }}</h5>
               <p class="card-text">{{ data.count }}</p>
@@ -152,7 +152,7 @@ onMounted(() => {
             </h5>
           </div>
           <div class="row p-2 card-2 m-3">
-            <h5 class="text-center text-success">Projections For This Month</h5>
+            <h5 class="text-center text-success fs-4">Projections For This Month</h5>
             <div v-for="data in projectionsByHallMonth" class="col text-center">
               <h5 class="card-title">{{ data.name }}</h5>
               <p class="card-text">{{ data.count }}</p>
@@ -200,8 +200,8 @@ ul{
 }
 
 .card-2{
-  border-left: 0.5rem solid #198754;
-  border-right: 0.5rem solid #198754;
+  border-top: 0.1rem solid #198754;
+  border-bottom: 0.1rem solid #198754;
   border-radius: 1.5rem;
   color:#198754;
   background-color: rgb(48, 47, 47);
@@ -212,7 +212,8 @@ ul{
   font-weight: bold;
 }
 .card-text {
-  font-size: 2rem;
+  font-size: 1.7rem;
+
 }
 
 h2{

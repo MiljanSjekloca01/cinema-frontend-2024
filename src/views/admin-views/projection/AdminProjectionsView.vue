@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { formatDate } from "../../../services/main.service";
+import { formatDate, pureDateString } from "../../../services/main.service";
 import type { ProjectionModel } from "../../../models/projection.model";
 import { ProjectionService } from "../../../services/projection.service";
 import Datepicker from '@vuepic/vue-datepicker';
@@ -8,12 +8,6 @@ import '@vuepic/vue-datepicker/dist/main.css';
 
 const projections = ref<ProjectionModel[]>()
 
-function datepickerFormatDate(date: Date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
@@ -50,7 +44,7 @@ async function removeThisProjection(id: number){
     <Datepicker 
       class="datepicker"
       v-model="date"
-      :format="datepickerFormatDate"
+      :format="pureDateString"
       :enable-time-picker="false"
       :min-date="new Date()"
       :max-date="maxDate"
@@ -60,7 +54,7 @@ async function removeThisProjection(id: number){
   </div>
 
 <div v-if="projections && projections.length > 0">   
-    <h1 class="h3 text-center m-4 text-danger">Cinema Projections</h1>
+    <h1 class="h3 text-center m-4 text-info">Cinema Projections</h1>
     <table class="table table-hover text-center">
     <thead>
         <tr>
@@ -89,7 +83,7 @@ async function removeThisProjection(id: number){
         <td>{{ formatDate(p.updatedAt) }}</td>
         <td>
             <div class="btn-group">
-                <RouterLink class="btn btn-sm btn-info m-1"
+                <RouterLink class="btn btn-sm btn-secondary m-1"
                     :to="`/projection/${p.projectionId}`">
                     <i class="fa-solid fa-pencil"></i>
                 </RouterLink>
@@ -103,7 +97,7 @@ async function removeThisProjection(id: number){
         </tr>
     </tbody>
     </table>
-    <RouterLink class="btn btn-md btn-danger" to="/projection/new">
+    <RouterLink class="btn btn-md btn-success" to="/projection/new">
         <i class="fa-solid fa-circle-plus"></i>
         Add New Projection
     </RouterLink>
@@ -111,7 +105,7 @@ async function removeThisProjection(id: number){
 
 <div v-else-if="projections?.length == 0" class="text-center m-5">
     <div class="mb-3 fs-3">Add First Projection for day</div>    
-    <RouterLink class="btn btn-md btn-danger" to="/projection/new">
+    <RouterLink class="btn btn-md btn-danger m-3" to="/projection/new">
         <i class="fa-solid fa-circle-plus"></i>
         Add New Projection
     </RouterLink>
@@ -126,7 +120,7 @@ async function removeThisProjection(id: number){
 
 </template>
 
-<style>
+<style scoped>
 
 .datepicker{
     max-width:400px;

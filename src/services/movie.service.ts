@@ -26,7 +26,7 @@ export class MovieService{
         return await useAxios(`/movie/update/${id}`,"put",data)
     }
 
-    static async createMovie(data: MovieModel){
+    static async createMovie(data: FormData){
         return await useAxios("/movie/create","post",data)
     }
 
