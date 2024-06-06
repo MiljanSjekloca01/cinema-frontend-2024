@@ -22,12 +22,12 @@ const previewImage = (event: Event) => {
   const target = event.target as HTMLInputElement;
   const file = target.files?.[0] ?? null;
   if (file) {
-      movie.value.image = file;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-          imagePreview.value = e.target?.result as string;
-      };
-      reader.readAsDataURL(file);
+    movie.value.image = file;  
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        imagePreview.value = e.target?.result as string;
+    };
+    reader.readAsDataURL(file);
   }
 };
 
@@ -35,7 +35,7 @@ const previewImage = (event: Event) => {
 
 async function createMovie(movie: any) {
   if (movie.image) {
-    console.log(movie.startsShowing)
+    
     const formData = new FormData();
     formData.append('image', movie.image);
     formData.append('title', movie.title);

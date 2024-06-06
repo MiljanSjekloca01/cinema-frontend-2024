@@ -18,12 +18,20 @@ export class MovieService{
         return await useAxios("/movie/delete/" + id,"put")
     }
 
+    static async deleteImageByMovieId(id: number){
+        return await useAxios(`/movie/${id}/image`,"delete")
+    }
+
     static async getMovieById(id: number){
         return await useAxios(`/movie/${id}`)
     }
 
     static async updateMovieById(id: number, data: MovieModel){
         return await useAxios(`/movie/update/${id}`,"put",data)
+    }
+
+    static async updateMovieByIdWithNewImage(id: number, data: FormData){
+        return await useAxios(`/movie/update/${id}/newImage`,"put",data)
     }
 
     static async createMovie(data: FormData){
