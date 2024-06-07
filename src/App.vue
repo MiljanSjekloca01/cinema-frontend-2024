@@ -39,10 +39,9 @@ function logout(){
                       <RouterLink class="nav-link" to="/admin-panel">Admin Panel</RouterLink>
                   </li>        
                 </ul>
-                <RouterLink class="nav-link d-flex align-items-center me-3" to="/search">
+                <RouterLink class="nav-link d-flex align-items-center me-3" to="/movie/find">
                   <i class="fa-solid fa-search me-2"></i>
                   Find Movie
-                
                 </RouterLink>
                
                 <button @click="logout()" type="button" class="btn btn-outline-danger" v-if="isAuthenticated">
@@ -74,7 +73,10 @@ function logout(){
                 <li class="nav-item" v-if="isAuthenticated">
                     <RouterLink class="nav-link" to="/admin-panel">Admin Panel</RouterLink>
                 </li>
-                <button class="btn btn-outline-secondary mt-1" type="button">Find Movie By Name</button>
+                <RouterLink class="nav-link me-3" to="/movie/find">
+                  <i class="fa-solid fa-search me-2"></i>
+                  Find Movie
+                </RouterLink>
                 <button @click="logout()" type="button" class="btn btn-warning mt-3" v-if="isAuthenticated"> Logout </button>
             </ul>
             

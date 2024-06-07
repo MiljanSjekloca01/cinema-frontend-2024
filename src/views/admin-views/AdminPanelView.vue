@@ -115,7 +115,7 @@ onMounted(() => {
                           </span>
                       </a>
                       <ul class="collapse navbar-collapse" id="projection-dropdown" data-bs-parent="#menu">
-                          <li class="mb-3"> <RouterLink to="/admin-panel/create/projection" class="nav-link d-none d-sm-inline">Create Projection</RouterLink> </li>
+                          <li class="mb-3"> <RouterLink to="/admin-panel/projection/create" class="nav-link d-none d-sm-inline">Create Projection</RouterLink> </li>
                           <li class="mb-3"> <RouterLink to="/admin-panel/projection" class="nav-link d-none d-sm-inline">Edit Projection</RouterLink> </li>
                           <li> <RouterLink to="/admin-panel/projection" href="#" class="nav-link d-none d-sm-inline">Projections</RouterLink> </li>
                       </ul>

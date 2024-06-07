@@ -20,7 +20,6 @@ const date = ref<Date>(today);
 async function onDateChange(){
     await ProjectionService.getAllProjectionsOnDate(date.value).then(rsp => {
     projections.value = rsp.data
-    console.log(rsp);
  })
 }
 
@@ -84,7 +83,7 @@ async function removeThisProjection(id: number){
         <td>
             <div class="btn-group">
                 <RouterLink class="btn btn-sm btn-secondary m-1"
-                    :to="`/projection/${p.projectionId}`">
+                    :to="`/admin-panel/projection/edit/${p.projectionId}`">
                     <i class="fa-solid fa-pencil"></i>
                 </RouterLink>
                 
@@ -97,7 +96,7 @@ async function removeThisProjection(id: number){
         </tr>
     </tbody>
     </table>
-    <RouterLink class="btn btn-md btn-success" to="/projection/new">
+    <RouterLink class="btn btn-md btn-success" to="/admin-panel/projection/create">
         <i class="fa-solid fa-circle-plus"></i>
         Add New Projection
     </RouterLink>
@@ -105,7 +104,7 @@ async function removeThisProjection(id: number){
 
 <div v-else-if="projections?.length == 0" class="text-center m-5">
     <div class="mb-3 fs-3">Add First Projection for day</div>    
-    <RouterLink class="btn btn-md btn-danger m-3" to="/projection/new">
+    <RouterLink class="btn btn-md btn-danger m-3" to="/admin-panel/projection/create">
         <i class="fa-solid fa-circle-plus"></i>
         Add New Projection
     </RouterLink>

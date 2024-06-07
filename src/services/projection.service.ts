@@ -1,11 +1,15 @@
 
 import type { ProjectionModel } from "@/models/projection.model";
-import { pureDateString, useAxios } from "./main.service";
+import { pureDateString, sendUnauthenticatedRequest, useAxios } from "./main.service";
 
 export class ProjectionService{
     
     static async getAllProjectionsOnDate(date: Date){
         return await useAxios(`/projection/onDate?date=${pureDateString(date)}`); // pureDateString(date)
+    }
+
+    static async unathenticatedGetAllProjectionsForMovieOnDate(id:number,date: Date){
+        return await sendUnauthenticatedRequest(`/projection/movie/${id}/onDate?date=${pureDateString(date)}`);
     }
 
     static async deleteProjectionById(id: number){
