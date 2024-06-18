@@ -41,12 +41,13 @@ const router = createRouter({
     { path: "/admin-panel/projection", name: "admin-projections", component: AdminProjectionsView},
     { path: "/admin-panel/projection/create", name: "admin-create-projection", component: AdminCreateProjection},
     { path: "/admin-panel/projection/edit/:id", name: "admin-edit-projection", component: AdminEditProjection},
+    // Catch Not Found Paths
+    { path: '/:catchAll(.*)', redirect: '/movies' }
   ]
 })
 
 router.beforeEach((to, from, next) => {
   if (to.path.startsWith('/admin-panel') && !AuthService.hasAuth()) {
-    console.log("IM IN")
     if (to.path === '/admin-panel/login') {
       next();
     } else {

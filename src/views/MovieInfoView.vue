@@ -51,10 +51,10 @@ watch(projectionDate, () => {
                     <p class="fs-5">Release Year: {{ movie.releaseYear }}</p>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 my-3">
                 <h3>Projections for</h3>
-                <input type="date" class="form-control" v-model="projectionDate" :min="pureDateString(new Date())">
-                <div v-for="projection in projections" class="mt-3 me-2 badge">
+                <input type="date" class="form-control mb-2" v-model="projectionDate" :min="pureDateString(new Date())">
+                <div v-for="projection in projections" class="my-3 me-2 badge">
                     <p class="fs-3 text-warning">{{ projection.startsAt.slice(0,5) }}</p>
                     <p class="fs-5 text-warning">{{ projection.hall.name }}</p>
                     <p class="fs-6 text-warning">{{ projection.hall.projectionType }}</p>

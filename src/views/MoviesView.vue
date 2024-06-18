@@ -12,7 +12,6 @@
     async function fetchMovies() {
     if (currentTab.value === 'currentlyShowing') {
         movies.value = (await MovieService.getCurrentlyShowingMovies()).data;
-        console.log(movies);
     } else {
         movies.value = (await MovieService.getComingSoonMovies()).data;
     }
@@ -51,33 +50,32 @@
     </li>
     </ul>
     
-    <!-- Colossal Images -->
-    <div id="carouselExampleIndicators" class="carousel slide my-4" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner mb-3">
-        <div class="carousel-item active">
-            
-        <img src="https://icantunseethatmovie.com/wp-content/uploads/2023/06/5dfc2-dune_banneritbegins.jpg" class="d-block w-100" alt="...">
+    <!-- SlideShow -->
+    <div id="slideshow" class="carousel slide my-4 carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#slideshow" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#slideshow" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#slideshow" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-item">
-        <img src="https://cinecentre.co.za/img/blog/Furiosa.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-inner mb-3">
+            <div class="carousel-item active">   
+                <img src="https://icantunseethatmovie.com/wp-content/uploads/2023/06/5dfc2-dune_banneritbegins.jpg" class="d-block w-100" alt="Slide Show Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cinecentre.co.za/img/blog/Furiosa.jpg" class="d-block w-100" alt="Slide Show Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://s3-us-west-2.amazonaws.com/thm.cnmhstng.com/cinema/yescinema/docs/banner.jpg" class="d-block w-100" alt="Slide Show Image 3">
+            </div>
         </div>
-        <div class="carousel-item">
-        <img src="https://s3-us-west-2.amazonaws.com/thm.cnmhstng.com/cinema/yescinema/docs/banner.jpg" class="d-block w-100" alt="...">
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+        <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 
     <!-- Movie List -->
@@ -127,6 +125,17 @@
 .card:hover > .card-body{
     color:gray;
 }
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon{
+   filter:unset !important;
+   background-color: rgb(14, 0, 0);
+   padding: 1.5rem;
+   border-radius: 50%;
+   background-size: 50%;
+   opacity: 1 !important;
+}
+
 
 
 </style>
