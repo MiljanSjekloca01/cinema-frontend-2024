@@ -32,7 +32,7 @@
                     <RouterLink class="nav-link" to="/locations">Locations</RouterLink>
                 </li>
                 <li class="nav-item">
-                    <RouterLink class="nav-link" to="/rent-hall">Rent cinema hall</RouterLink>
+                    <RouterLink class="nav-link" to="/about">About Us</RouterLink>
                 </li>
                 <li class="nav-item" v-if="isAuthenticated">
                     <RouterLink class="nav-link" to="/admin-panel">Admin Panel</RouterLink>
@@ -67,7 +67,7 @@
                     <RouterLink class="nav-link" to="/locations">Locations</RouterLink>
                 </li>
                 <li class="nav-item">
-                    <RouterLink class="nav-link" to="/rent-hall">Rent cinema hall</RouterLink>
+                    <RouterLink class="nav-link" to="/about">About Us</RouterLink>
                 </li>
                 <li class="nav-item" v-if="isAuthenticated">
                     <RouterLink class="nav-link" to="/admin-panel">Admin Panel</RouterLink>

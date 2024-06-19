@@ -12,7 +12,7 @@
           <li class="nav-item mx-2"><RouterLink to="/" class="nav-link p-0 text-muted">Ratings Information</RouterLink></li>
           <li class="nav-item mx-2"><RouterLink to="/" class="nav-link p-0 text-muted">RealD 3D</RouterLink></li>
           <li class="nav-item mx-2"><RouterLink to="/" class="nav-link p-0 text-muted">Jobs</RouterLink></li>
-          <li class="nav-item mx-2"><RouterLink to="/" class="nav-link p-0 text-muted">About</RouterLink></li>
+          <li class="nav-item mx-2"><RouterLink to="/about" class="nav-link p-0 text-muted">About</RouterLink></li>
         </ul>
       </div>
       <div class="col-md-5 offset-md-1 mb-3">

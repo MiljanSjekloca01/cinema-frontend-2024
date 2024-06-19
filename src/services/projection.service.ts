@@ -1,6 +1,7 @@
 
 import type { ProjectionModel } from "@/models/projection.model";
-import { pureDateString, sendUnauthenticatedRequest, useAxios } from "./main.service";
+import { sendUnauthenticatedRequest, useAxios } from "./main.service";
+import { pureDateString } from "./format.service";
 
 export class ProjectionService{
     

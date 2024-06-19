@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { ProjectionService } from '@/services/projection.service';
 import { HallService } from '@/services/hall.service';
 import { MovieService } from '@/services/movie.service';
-import { formatDate } from '@/services/main.service';
+import { formatDate } from '@/services/format.service';
 
 const router = useRouter();
 const route = useRoute();

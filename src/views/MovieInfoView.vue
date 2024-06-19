@@ -3,7 +3,7 @@ import { onMounted, ref, watch } from 'vue';
 import { MovieService } from '@/services/movie.service';
 import { ProjectionService } from '@/services/projection.service';
 import type { ProjectionModel } from '@/models/projection.model';
-import { formatDate, pureDateString } from '@/services/main.service';
+import { formatDate, pureDateString, formatMinutesToHours } from '@/services/format.service';
 import { useRoute } from 'vue-router';
 import type { MovieModel } from '@/models/movie.model';
 
@@ -22,19 +22,10 @@ async function fetchProjections() {
   projections.value = (await ProjectionService.unathenticatedGetAllProjectionsForMovieOnDate(movieId, new Date(projectionDate.value))).data;
 }
 
-function formatMinutes(minutes: number) {
-    const hours = Math.floor(minutes / 60);
-    const remainingMinutes = minutes % 60;
-    return `${hours}h ${remainingMinutes}min`;
-}
-
-
 onMounted(fetchProjections);
+watch(projectionDate,fetchProjections);
 
-watch(projectionDate, () => {
-  fetchProjections();
-  console.log(projections.value);
-});
+
 </script>
 
 
@@ -47,7 +38,7 @@ watch(projectionDate, () => {
                 <img :src="`${BASE_URL}/movie/${movieId}/image`" class="img-fluid mb-3" :alt="movie.title">
                 <div class="d-flex flex-column align-items-center justify-content-center w-100 ms-3 gap-5 pb-2">
                     <p class="fs-5">{{ movie!.genre.join(' | ') }}</p>
-                    <p class="fs-5">{{ formatMinutes(movie.duration) }} <i class="fa-regular fa-clock me-2"></i> </p>
+                    <p class="fs-5">{{ formatMinutesToHours(movie.duration) }} <i class="fa-regular fa-clock me-2"></i> </p>
                     <p class="fs-5">Release Year: {{ movie.releaseYear }}</p>
                 </div>
             </div>
@@ -75,13 +66,18 @@ watch(projectionDate, () => {
                 </div>
             </div>
         </div>
+        <div class="d-flex align-items-center justify-content-center flex-column my-2">
+            <h3 class="my-4 main-actors">Main Actors</h3>
+            <ul class="d-flex flex-row list-unstyled mt-2">
+                <li v-for="actor in movie.mainActors" class="mx-3 fs-3 actor-text">{{ actor }}</li>
+            </ul>
+        </div>
     </div>
     
     <div v-else>Movie is being loaded... please wait ! </div>
   </template>
 
 <style scoped>
-
 
 img{
     border-radius: 3rem;
@@ -92,8 +88,6 @@ img{
 p{
     margin:0.3rem;
 }
-
-
 
 .badge > p {
     font-size:0.9rem;
@@ -110,6 +104,38 @@ p{
 .accordion-button{
     background-color: transparent;
     color:white;
+}
+
+.actor-text{
+    padding-bottom: 10px;
+    border-bottom:3px solid;
+    border-image: linear-gradient(to right, rgb(239, 172, 2), rgb(11, 11, 1)) 1;
+}
+
+.actor-text:hover{
+    cursor: pointer;
+    transition: 1s;
+    border-image: linear-gradient(to left, rgb(239, 172, 2), rgb(11, 11, 1)) 1;
+}
+
+
+.main-actors{
+    letter-spacing: 10px;
+    display:flex;
+    align-items: center;
+    opacity:0.9;
+}
+
+.main-actors::after,
+.main-actors::before{
+    content:"";
+    width:30vw;
+    margin:0px 20px;
+    height:3px;
+    flex:1;
+    background:rgb(235, 170, 3);
+    border-radius:1rem;
+    
 }
 
 

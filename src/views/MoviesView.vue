@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { ref, onMounted, watch, setBlockTracking } from 'vue';
+    import { ref, onMounted, watch} from 'vue';
     import { MovieService } from '@/services/movie.service';
     import router from '@/router';
     import type { MovieModel } from '@/models/movie.model';
@@ -10,11 +10,11 @@
     
 
     async function fetchMovies() {
-    if (currentTab.value === 'currentlyShowing') {
-        movies.value = (await MovieService.getCurrentlyShowingMovies()).data;
-    } else {
-        movies.value = (await MovieService.getComingSoonMovies()).data;
-    }
+        if (currentTab.value === 'currentlyShowing') {
+            movies.value = (await MovieService.getCurrentlyShowingMovies()).data;
+        } else {
+            movies.value = (await MovieService.getComingSoonMovies()).data;
+        }
     }
 
     onMounted(fetchMovies);
@@ -57,7 +57,7 @@
             <button type="button" data-bs-target="#slideshow" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#slideshow" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner mb-3">
+        <div class="carousel-inner mb-5">
             <div class="carousel-item active">   
                 <img src="https://icantunseethatmovie.com/wp-content/uploads/2023/06/5dfc2-dune_banneritbegins.jpg" class="d-block w-100" alt="Slide Show Image 1">
             </div>
@@ -81,7 +81,7 @@
     <!-- Movie List -->
     <div class="row text-center">
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4" v-for="movie in movies" @click="navigateToMovie(movie.movieId)">
-        <div class="card h-100 m-3">
+        <div class="card h-100">
             <img :src="`${BASE_URL}/movie/${movie.movieId}/image`" class="card-img-top" :alt="movie.title">
             <div class="card-body">
                 <h5 class="card-title">{{ movie.title }}</h5>
@@ -116,6 +116,8 @@
 
 .card{
     border: none;
+    max-width: 275px;
+    margin:auto;
 }
 
 .row:hover{

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { formatDate, pureDateString } from "../../../services/main.service";
+import { formatDate, pureDateString } from "../../../services/format.service";
 import type { ProjectionModel } from "../../../models/projection.model";
 import { ProjectionService } from "../../../services/projection.service";
 import Datepicker from '@vuepic/vue-datepicker';

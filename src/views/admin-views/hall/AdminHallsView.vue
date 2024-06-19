@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { formatDate } from "../../../services/main.service";
+import { formatDate } from "../../../services/format.service";
 import type { HallModel } from "../../../models/hall.model";
 import { HallService } from "@/services/hall.service";
 

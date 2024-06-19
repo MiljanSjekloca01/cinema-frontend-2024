@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { pureDateString } from '@/services/main.service';
+import { pureDateString } from '@/services/format.service';
 import { MovieService } from '@/services/movie.service';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';

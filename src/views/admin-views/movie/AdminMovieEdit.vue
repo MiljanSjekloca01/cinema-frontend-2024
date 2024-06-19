@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { pureDateString } from '@/services/main.service';
+import { pureDateString } from '@/services/format.service';
 import { MovieService } from '@/services/movie.service';
 import type { MovieModel } from '@/models/movie.model';
 
