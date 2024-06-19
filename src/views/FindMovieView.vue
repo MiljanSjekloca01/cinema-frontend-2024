@@ -101,7 +101,6 @@ onMounted(fetchMovies);
 
 .card-img-top {
   height: 300px;
-  object-fit: cover;
 }
 
 .genres-container {

@@ -15,6 +15,7 @@ import AdminProjectionsView from "@/views/admin-views/projection/AdminProjection
 import AdminCreateProjection from "@/views/admin-views/projection/AdminCreateProjection.vue"
 import AdminEditProjection from "@/views/admin-views/projection/AdminEditProjection.vue"
 import LocationsView from "@/views/LocationsView.vue"
+import AboutView from "@/views/AboutView.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,7 @@ const router = createRouter({
     { path: "/movie/:id", name:"movie-info", component: MovieInfoView },
     { path: "/movie/find", name:"find-movie", component: FindMovieView },
     { path: "/locations", name:"locations", component: LocationsView },
+    { path: "/about", name:"about", component: AboutView },
 
     // Admin Authenticated Paths and Login 
     { path: "/admin-panel/login", name: "login", component: LoginView},
